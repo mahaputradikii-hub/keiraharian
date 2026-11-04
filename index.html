@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Jurnal Harian · Hidup Sehat &amp; Produktif</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#fdeef4" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0e1535" media="(prefers-color-scheme: dark)">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fdeef4;--card:#fffafc;--ink:#1b2557;--mute:#6b6f98;--gold:#d6407f;--line:#f4c8da;--good:#2f8f78;--bad:#c2334d;--soft:#fde1ed;--bi:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1535;--card:#172046;--ink:#fde9f2;--mute:#a9aed3;--gold:#ff8ab8;--line:#2c3768;--good:#7fd6b0;--bad:#ff9aa5;--soft:#1f2a5a;--bi:#150f33}}
+:root[data-theme="dark"]{--bg:#0e1535;--card:#172046;--ink:#fde9f2;--mute:#a9aed3;--gold:#ff8ab8;--line:#2c3768;--good:#7fd6b0;--bad:#ff9aa5;--soft:#1f2a5a;--bi:#150f33}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Jost',system-ui,sans-serif;font-weight:400;line-height:1.55;overflow-x:hidden}
+.wrap{max-width:900px;margin:0 auto;padding:34px 18px 80px}
+header{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;border-bottom:1px solid var(--gold);padding-bottom:16px;margin-bottom:22px}
+h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(34px,7vw,52px);margin:0;line-height:1;letter-spacing:.01em}
+h1 em{color:var(--gold)}
+.tag{color:var(--mute);font-size:13px;letter-spacing:.18em;text-transform:uppercase;margin-top:6px}
+.score{text-align:right}
+.score b{display:block;font-family:'Cormorant Garamond',serif;font-size:44px;line-height:1;color:var(--gold)}
+.score.neg b{color:var(--bad)}
+.score span{font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--mute)}
+nav{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:22px}
+nav button{font:inherit;font-size:14px;letter-spacing:.06em;background:none;border:0;border-bottom:2px solid transparent;color:var(--mute);padding:8px 14px;cursor:pointer}
+nav button.on{color:var(--ink);border-color:var(--gold)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:0 6px 18px color-mix(in srgb,var(--gold) 14%,transparent);padding:22px;margin-bottom:18px}
+h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:26px;margin:0 0 4px}
+h3{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin:0 0 10px;font-weight:500}
+p.h{color:var(--mute);font-size:14px;margin:0 0 12px}
+label{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-bottom:4px}
+input,textarea,select{width:100%;font:inherit;color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:14px;padding:10px 14px;outline:none}
+input:focus,textarea:focus,select:focus{border-color:var(--gold)}
+textarea{min-height:90px;resize:vertical}
+.btn{font:inherit;font-size:13px;letter-spacing:.12em;text-transform:uppercase;background:var(--gold);color:var(--bi);border:0;padding:11px 24px;border-radius:99px;cursor:pointer;margin-top:12px}
+.btn[disabled]{opacity:.6;cursor:wait}
+.btn.o{background:none;color:var(--ink);border:1px solid var(--line)}
+.btn.x{background:none;color:var(--mute);padding:2px 8px;margin:0;font-size:16px;letter-spacing:0}
+.row{display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end}
+.row>*{flex:1 1 150px}
+.st{color:var(--mute);font-size:14px;margin-top:10px;min-height:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-bottom:6px}
+.k{border:1px solid var(--line);padding:14px;border-radius:18px;background:var(--soft)}
+.k b{display:block;font-family:'Cormorant Garamond',serif;font-size:30px;line-height:1.1}
+.k span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.pos{color:var(--good)}.neg{color:var(--bad)}
+.it{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-top:1px solid var(--line);align-items:flex-start}
+.it:first-of-type{border-top:0}
+.it small{color:var(--mute);display:block}
+.pt{font-family:'Cormorant Garamond',serif;font-size:22px;white-space:nowrap;text-align:right}
+.flag{display:inline-block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--bad);color:var(--bad);padding:0 6px;border-radius:2px;margin-left:6px}
+.bar{height:6px;background:var(--soft);border-radius:3px;overflow:hidden;margin:8px 0}
+.bar i{display:block;height:100%;background:var(--gold)}
+.moods{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 12px}
+.mood{font:inherit;font-size:14px;border:1px solid var(--line);background:none;color:var(--ink);padding:6px 14px;border-radius:99px;cursor:pointer}
+.mood.on{background:var(--ink);color:var(--bg)}
+.note{border-left:2px solid var(--gold);padding:4px 14px;color:var(--mute);font-style:italic;margin:6px 0 12px}
+.empty{color:var(--mute);text-align:center;padding:14px;font-size:14px}
+.sub{display:flex;gap:8px;margin-bottom:16px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:500;text-align:right;padding:6px 6px;border-bottom:1px solid var(--gold)}
+td{padding:8px 6px;text-align:right;border-bottom:1px solid var(--line)}
+th:first-child,td:first-child{text-align:left}
+.scroll{overflow-x:auto}
+.ch{display:grid;grid-template-columns:1fr 160px 44px;gap:10px;align-items:center;padding:6px 0;font-size:14px}
+input[type=range]{padding:0;accent-color:var(--gold)}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+.btn,nav button,.mood{min-height:44px}
+.btn.x{min-width:44px;font-size:20px}
+input[type=range]{height:32px}
+@media (max-width:640px){
+ .wrap{padding:20px 14px 110px}
+ header{flex-direction:column;align-items:flex-start}
+ header>div:last-child{width:100%;justify-content:space-between;align-items:center}
+ .score b{font-size:36px}
+ nav{position:fixed;left:0;right:0;bottom:0;z-index:20;margin:0;gap:0;justify-content:space-around;background:var(--card);border-top:1px solid var(--line);padding:4px 4px env(safe-area-inset-bottom,0px)}
+ nav button{flex:1;padding:10px 2px;font-size:12px;letter-spacing:0;border-bottom:0;border-top:2px solid transparent}
+ nav button.on{border-top-color:var(--gold);color:var(--gold)}
+ .card{padding:18px 16px;border-radius:18px}
+ .grid{grid-template-columns:repeat(2,1fr)}
+ .k b{font-size:26px}
+ .row>*{flex:1 1 100%}
+ .it{flex-wrap:wrap}
+ td,th{padding:8px 4px;font-size:13px}
+}
+@media (min-width:960px){
+ .wrap{max-width:1080px;padding-top:44px}
+ .v-makan,.v-aktif,.v-curhat,.v-hadiah{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+ .v-makan .card,.v-aktif .card,.v-curhat .card,.v-hadiah .card{margin-bottom:0}
+ .v-aktif .card:nth-child(3),.v-hadiah .card:nth-child(3){grid-column:1/-1}
+}
+.foot{text-align:center;color:var(--mute);font-size:12px;margin-top:34px}
+@media (max-width:560px){.ch{grid-template-columns:1fr 44px}.ch input{grid-column:1/3;order:3}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div><h1>Jurnal <em>Harian</em> <span style="color:var(--gold);font-size:.6em">♡</span></h1><div class="tag">hidup sehat · produktif · bahagia</div></div>
+  <div style="display:flex;gap:22px;align-items:flex-end"><div id="who"></div><div class="score" id="hs"></div></div>
+</header>
+<nav id="nav"></nav>
+<div class="row" id="dr" style="margin-bottom:18px"><div style="flex:0 1 220px"><label for="tgl">Tanggal</label><input type="date" id="tgl"></div></div>
+<main id="view"></main>
+<p class="foot">Data tersimpan di browser perangkat ini · estimasi gizi hanya perkiraan, bukan saran medis</p>
+</div>
+<script>
+const K='jurnal-harian-v2';
+const CH=['Bab 1 · Pendahuluan','Bab 2 · Kajian Pustaka','Bab 3 · Metodologi','Bab 4 · Hasil & Pembahasan','Bab 5 · Penutup','Revisi & Sidang'];
+const MOODS=['senang','tenang','biasa','cemas','sedih','sangat sedih','kesal'];
+const TABS=[['makan','Makanan'],['aktif','Aktivitas'],['curhat','Curhat'],['lap','Laporan'],['hadiah','Hadiah']];
+const def=()=>({food:{},move:{},sleep:{},thesis:{ch:CH.map(()=>0),logs:[]},diary:[],target:60,
+ rewards:[{id:1,nama:'Nonton bioskop',biaya:150},{id:2,nama:'Makan di restoran favorit',biaya:200},{id:3,nama:'Beli buku atau kopi spesial',biaya:100}],redeemed:[]});
+let S=def(),U=null;
+const AK='jurnal-akun-v1',uk=u=>'jurnal-data-'+u;
+const accts=()=>{try{return JSON.parse(localStorage.getItem(AK))||{}}catch(e){return {}}};
+const saveAcc=a=>{try{localStorage.setItem(AK,JSON.stringify(a))}catch(e){}};
+const hex=b=>[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('');
+async function hashPw(p,salt){const k=await crypto.subtle.importKey('raw',new TextEncoder().encode(p),'PBKDF2',false,['deriveBits']);return hex(await crypto.subtle.deriveBits({name:'PBKDF2',salt:new TextEncoder().encode(salt),iterations:150000,hash:'SHA-256'},k,256))}
+function loadUser(u){U=u;S=def();try{const r=localStorage.getItem(uk(u));if(r)S=Object.assign(def(),JSON.parse(r))}catch(e){}}
+const save=()=>{if(!U)return;try{localStorage.setItem(uk(U),JSON.stringify(S))}catch(e){}};
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const iso=d=>new Date(d.getTime()-d.getTimezoneOffset()*6e4).toISOString().slice(0,10);
+const r1=v=>Math.round((+v||0)*10)/10;
+const sg=v=>(v>0?'+':'')+v;
+const cls=v=>v>0?'pos':v<0?'neg':'';
+const fmt=d=>new Date(d+'T00:00:00').toLocaleDateString('id-ID',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+const fmtM=m=>new Date(m+'-01T00:00:00').toLocaleDateString('id-ID',{month:'long',year:'numeric'});
+let tab='makan',date=iso(new Date()),ym=date.slice(0,7),mood='',busy=false,msg='',sample=null,sub='h';
+$('#tgl').value=date;
+$('#tgl').onchange=e=>{if(e.target.value){date=e.target.value;ym=date.slice(0,7)}msg='';render()};
+$('#nav').innerHTML=TABS.map(t=>`<button data-t="${t[0]}">${t[1]}</button>`).join('');
+$('#nav').onclick=e=>{const b=e.target.closest('button');if(b){tab=b.dataset.t;msg='';render()}};
+(async()=>{try{sample=await claude.use('sample')}catch(e){sample=null}render()})();
+
+/* ---------- poin ---------- */
+const band=m=>m>=60?5:m>=45?4:m>=30?3:m>=15?2:m>0?1:0;
+function sleepPts(t){if(!t)return 0;const [h,i]=t.split(':').map(Number),m=h*60+i;return m>0&&m<360?(m<60?-10:m<120?-15:-20):0}
+const sum=(a,k)=>a.reduce((s,x)=>s+(+x[k]||0),0);
+function day(d){
+  const fo=S.food[d]||[],mv=S.move[d]||[],lg=S.thesis.logs.filter(l=>l.d===d),sl=S.sleep[d];
+  const o={f:sum(fo,'poin'),o:sum(mv,'poin'),k:sum(lg,'poin'),t:sl?sl.poin:0,fo,mv,lg,sl};
+  o.tot=o.f+o.o+o.k+o.t;o.prot=sum(fo,'protein');o.kkal=sum(fo,'kkal');o.mo=sum(mv,'menit');o.mk=sum(lg,'m');return o}
+const dates=m=>{const s=new Set();[...Object.keys(S.food),...Object.keys(S.move),...Object.keys(S.sleep),...S.thesis.logs.map(l=>l.d)].forEach(d=>{if(d.startsWith(m))s.add(d)});return [...s].sort()};
+const monthPts=m=>dates(m).reduce((s,d)=>s+day(d).tot,0);
+const spent=m=>sum(S.redeemed.filter(x=>x.bulan===m),'biaya');
+const balance=m=>monthPts(m)-spent(m);
+
+/* ---------- gizi offline ---------- */
+const DB=[[/nasi goreng/,'Nasi goreng','1 piring',480,12,65,18,3,0,0,1],[/nasi uduk|nasi kuning/,'Nasi uduk','1 piring',350,6,55,10,2,0,0,1],[/nasi/,'Nasi putih','1 piring',204,4,44,0.4,0.6,0,0,1],[/ayam goreng/,'Ayam goreng','1 potong',260,22,8,16,0,0,0,2],[/ayam bakar|ayam panggang/,'Ayam bakar','1 potong',215,24,3,11,0,0,0,4],[/ayam/,'Ayam','1 potong',200,22,0,12,0,0,0,3],[/ikan/,'Ikan','1 potong',150,22,0,6,0,0,0,5],[/telur/,'Telur','1 butir',75,6.3,0.6,5,0,0,0,4],[/tempe/,'Tempe','1 potong',80,8,5,4,1.4,0,0,5],[/tahu/,'Tahu','1 potong',35,4,1,2,0.3,0,0,4],[/sayur|bayam|kangkung|brokoli|capcay|gado/,'Sayuran','1 mangkuk',60,3,10,1,4,0,0,5],[/buah|apel|pisang|jeruk|pepaya|semangka/,'Buah','1 porsi',80,1,20,0.3,3,0,0,5],[/oatmeal|gandum/,'Oatmeal','1 mangkuk',150,5,27,3,4,0,0,5],[/susu/,'Susu','1 gelas',120,6,10,6,0,0,0,3],[/bakso/,'Bakso','1 mangkuk',320,17,30,14,1,0,0,2],[/mie ?(instan|goreng|rebus)|indomie|mi /,'Mi instan','1 bungkus',380,8,54,14,2,0,0,1],[/roti/,'Roti tawar','2 lembar',160,5,30,2,2,0,0,2],[/gorengan|bakwan|pisang goreng/,'Gorengan','1 buah',130,2,14,8,1,0,0,1],[/soto/,'Soto ayam','1 mangkuk',300,20,25,12,2,0,0,3],[/air putih|air mineral/,'Air putih','1 gelas',0,0,0,0,0,0,0,3],[/teh tawar|kopi hitam/,'Minuman tanpa gula','1 gelas',3,0,0,0,0,0,0,2],[/teh manis|es teh/,'Teh manis','1 gelas',100,0,25,0,0,0,1,0],[/kopi susu|boba|soda|cola|sirup|jus kemasan/,'Minuman manis','1 gelas',200,2,40,4,0,0,1,0],[/seblak|sambal|pedas|balado|rica|cabai|cabe/,'Makanan pedas','1 porsi',350,10,40,15,3,1,0,0],[/donat|cake|coklat|cokelat|es krim|permen|kue manis|martabak/,'Makanan manis','1 porsi',300,4,45,12,1,0,1,0]];
+const PD=/pedas|sambal|seblak|balado|rica|cabai|cabe|level/,MN=/manis|gula|boba|sirup|soda|cola|donat|cake|cokelat|coklat|es krim|permen|martabak/;
+function pointOf(pedas,manis,skor){return pedas||manis?-50:Math.max(1,Math.min(5,Math.round(skor||1)))}
+function offline(text){
+  return text.split(/[,\n;]| dan /i).map(s=>s.trim()).filter(Boolean).map(p=>{
+    const l=p.toLowerCase(),q=Math.min(10,+(l.match(/\d+/)||[1])[0]||1),h=DB.find(x=>x[0].test(l));
+    const pedas=PD.test(l)||(h&&h[8]==1),manis=MN.test(l)||(h&&h[9]==1);
+    if(!h)return{nama:p,porsi:'tidak dikenal',kkal:0,protein:0,karbo:0,lemak:0,serat:0,pedas,manis,poin:pointOf(pedas,manis,1)};
+    const m=q>1&&q<=10?q:1;
+    return{nama:p,porsi:(m>1?m+' × ':'')+h[2],kkal:h[3]*m,protein:h[4]*m,karbo:h[5]*m,lemak:h[6]*m,serat:h[7]*m,pedas,manis,poin:pointOf(pedas,manis,h[10])}});
+}
+async function riset(){
+  const t=$('#ft').value.trim();
+  if(!t){msg='Tulis dulu makanan dan minumanmu.';render();return}
+  busy=true;msg='Sedang meriset kandungan gizi…';render();
+  let items=null;
+  if(sample){try{
+    const r=await sample.json(`Kamu ahli gizi. Perkirakan gizi tiap makanan/minuman berikut berdasarkan porsi umum di Indonesia (rujuk TKPI Kemenkes dan USDA); jika porsi tidak disebut, pakai porsi standar. Balas HANYA JSON array tanpa teks lain, tiap elemen: {"nama":string,"porsi":string,"kkal":number,"protein":number,"karbo":number,"lemak":number,"serat":number,"pedas":boolean,"gula_tinggi":boolean,"skor_sehat":integer 1-5}. "pedas" true jika terasa pedas; "gula_tinggi" true jika minuman/makanan manis berlebih. Teks:\n${t}`,{modelTier:'default'});
+    const a=Array.isArray(r)?r:(r&&r.items)||[];
+    items=a.map(x=>({nama:String(x.nama||'?'),porsi:String(x.porsi||''),kkal:+x.kkal||0,protein:+x.protein||0,karbo:+x.karbo||0,lemak:+x.lemak||0,serat:+x.serat||0,pedas:!!x.pedas,manis:!!x.gula_tinggi,poin:pointOf(!!x.pedas,!!x.gula_tinggi,x.skor_sehat)}));
+    if(!items.length)items=null}catch(e){items=null}}
+  const auto=!!items;
+  if(!items)items=offline(t);
+  (S.food[date]=S.food[date]||[]).push(...items);save();
+  msg=auto?'Selesai. Gizi dihitung dari riset otomatis.':'Gizi dihitung dari data lokal (mode offline). Buka lewat claude.ai untuk riset otomatis.';
+  busy=false;render();
+}
+
+/* ---------- tampilan ---------- */
+function chips(d){return `<div class="grid"><div class="k"><b class="${cls(d.f)}">${sg(d.f)}</b><span>Makanan</span></div><div class="k"><b class="${cls(d.o)}">${sg(d.o)}</b><span>Olahraga</span></div><div class="k"><b class="${cls(d.k)}">${sg(d.k)}</b><span>Skripsi</span></div><div class="k"><b class="${cls(d.t)}">${sg(d.t)}</b><span>Tidur</span></div><div class="k"><b class="${cls(d.tot)}">${sg(d.tot)}</b><span>Total</span></div></div>`}
+function vMakan(){
+  const d=day(date),pct=Math.min(100,d.prot/(S.target||60)*100);
+  return `<section class="card"><h2>Hari ini makan apa?</h2><p class="h">Tulis bebas, misal: nasi 1 piring, ayam goreng, tempe 3, es teh manis. ${sample?'Riset otomatis aktif.':'Mode offline: memakai data gizi bawaan.'}</p>
+  <textarea id="ft" placeholder="sarapan, makan siang, camilan, minuman…"></textarea>
+  <button class="btn" data-a="riset" ${busy?'disabled':''}>${busy?'Meriset…':'Hitung gizi & poin'}</button><div class="st">${esc(msg)}</div></section>
+  <section class="card"><h3>Ringkasan · ${esc(fmt(date))}</h3>
+  <div class="grid"><div class="k"><b>${Math.round(d.kkal)}</b><span>kkal</span></div><div class="k"><b>${r1(d.prot)} g</b><span>protein</span></div><div class="k"><b>${r1(sum(d.fo,'karbo'))} g</b><span>karbo</span></div><div class="k"><b>${r1(sum(d.fo,'lemak'))} g</b><span>lemak</span></div><div class="k"><b>${r1(sum(d.fo,'serat'))} g</b><span>serat</span></div></div>
+  <div class="row" style="margin-top:12px"><div style="flex:2 1 200px"><label>Target protein harian (g)</label><div class="bar"><i style="width:${pct}%"></i></div></div><div style="flex:0 1 100px"><input type="number" id="tg" value="${S.target}" min="10" max="300"></div></div>
+  ${d.fo.length?d.fo.map((f,i)=>`<div class="it"><div><b>${esc(f.nama)}</b>${f.pedas?'<span class="flag">pedas</span>':''}${f.manis?'<span class="flag">gula</span>':''}<small>${esc(f.porsi)} · ${Math.round(f.kkal)} kkal · protein ${r1(f.protein)} g · karbo ${r1(f.karbo)} g · lemak ${r1(f.lemak)} g</small></div><div><span class="pt ${cls(f.poin)}">${sg(f.poin)}</span> <button class="btn x" data-a="hf" data-i="${i}">×</button></div></div>`).join(''):'<div class="empty">Belum ada catatan makan hari ini.</div>'}</section>`;
+}
+function vAktif(){
+  const d=day(date),sl=S.sleep[date]||{},avg=Math.round(S.thesis.ch.reduce((a,b)=>a+b,0)/CH.length);
+  const dur=sl.tidur&&sl.bangun?(()=>{let a=sl.tidur.split(':').map(Number),b=sl.bangun.split(':').map(Number),m=(b[0]*60+b[1])-(a[0]*60+a[1]);if(m<=0)m+=1440;return Math.floor(m/60)+' j '+m%60+' m'})():'';
+  return `<section class="card"><h2>Pola tidur</h2><p class="h">Tidur setelah jam 12 malam: −10 sampai −20 poin (00:01–00:59 = −10, 01:00–01:59 = −15, lewat 02:00 = −20).</p>
+  <div class="row"><div><label for="st">Jam tidur</label><input type="time" id="st" value="${sl.tidur||''}"></div><div><label for="sb">Jam bangun</label><input type="time" id="sb" value="${sl.bangun||''}"></div></div>
+  <button class="btn" data-a="tidur">Simpan tidur</button>
+  ${sl.tidur?`<div class="st">Durasi ${dur} · <b class="${cls(sl.poin)}">${sg(sl.poin)} poin</b></div>`:''}</section>
+  <section class="card"><h2>Olahraga</h2><p class="h">Poin 1–5 sesuai durasi: 1–14 mnt = 1, 15–29 = 2, 30–44 = 3, 45–59 = 4, 60+ = 5.</p>
+  <div class="row"><div style="flex:2 1 200px"><label for="oj">Jenis</label><input type="text" id="oj" placeholder="jogging, gym, yoga…"></div><div><label for="om">Menit</label><input type="number" id="om" min="1"></div></div>
+  <button class="btn" data-a="olah">Simpan olahraga</button>
+  ${d.mv.map((m,i)=>`<div class="it"><div><b>${esc(m.jenis)}</b><small>${m.menit} menit</small></div><div><span class="pt ${cls(m.poin)}">${sg(m.poin)}</span> <button class="btn x" data-a="ho" data-i="${i}">×</button></div></div>`).join('')}</section>
+  <section class="card"><h2>Progres skripsi</h2><p class="h">Poin 1–5 sesuai durasi mengerjakan (skala sama dengan olahraga). Progres keseluruhan ${avg}%.</p>
+  <div class="bar"><i style="width:${avg}%"></i></div>
+  <details><summary style="cursor:pointer;color:var(--gold);font-size:14px">Atur progres per bab</summary>${CH.map((c,i)=>`<div class="ch"><span>${esc(c)}</span><input type="range" min="0" max="100" step="5" value="${S.thesis.ch[i]}" data-a="bab" data-i="${i}"><b>${S.thesis.ch[i]}%</b></div>`).join('')}</details>
+  <label for="sl" style="margin-top:14px">Yang dikerjakan hari ini</label><textarea id="sl" placeholder="mis. selesai subbab 2.3, revisi dari dosen…"></textarea>
+  <div class="row" style="margin-top:10px"><div style="flex:0 1 180px"><label for="sm">Durasi (menit)</label><input type="number" id="sm" min="1"></div></div>
+  <button class="btn" data-a="skripsi">Simpan progres</button>
+  ${d.lg.map(l=>`<div class="it"><div><small>${l.m} menit</small>${esc(l.t)}</div><div><span class="pt ${cls(l.poin)}">${sg(l.poin)}</span> <button class="btn x" data-a="hs" data-id="${l.id}">×</button></div></div>`).join('')}</section>`;
+}
+function vCurhat(){
+  const es=S.diary.filter(e=>e.d===date),heavy=/sedih|cemas|kesal/.test(mood);
+  return `<section class="card"><h2>Apa yang kamu rasakan?</h2><div class="moods">${MOODS.map(m=>`<button class="mood ${m===mood?'on':''}" data-a="mood" data-m="${m}">${m}</button>`).join('')}</div>
+  ${heavy?'<div class="note">Tidak apa-apa merasa begini. Tulis saja apa adanya, tanpa perlu rapi.</div>':''}
+  <textarea id="dt" placeholder="ceritakan hari ini…"></textarea><button class="btn" data-a="diary">Simpan catatan</button></section>
+  <section class="card"><h3>Catatan · ${esc(fmt(date))}</h3>${es.length?es.map(e=>`<div class="it"><div><small>${esc(e.mood||'tanpa suasana hati')} · ${esc(e.jam)}</small><span style="white-space:pre-wrap">${esc(e.t)}</span></div><button class="btn x" data-a="hd" data-id="${e.id}">×</button></div>`).join(''):'<div class="empty">Belum ada catatan di tanggal ini.</div>'}</section>`;
+}
+function vLap(){
+  const sb=`<div class="sub"><button class="btn ${sub==='h'?'':'o'}" style="margin:0" data-a="sub" data-s="h">Harian</button><button class="btn ${sub==='b'?'':'o'}" style="margin:0" data-a="sub" data-s="b">Bulanan</button></div>`;
+  if(sub==='h'){const d=day(date);
+    return sb+`<section class="card"><h2>Laporan ${esc(fmt(date))}</h2>${chips(d)}
+    <div class="grid" style="margin-top:12px"><div class="k"><b>${Math.round(d.kkal)}</b><span>kkal</span></div><div class="k"><b>${r1(d.prot)} g</b><span>protein</span></div><div class="k"><b>${d.mo}</b><span>menit olahraga</span></div><div class="k"><b>${d.mk}</b><span>menit skripsi</span></div><div class="k"><b>${d.sl?d.sl.tidur:'-'}</b><span>jam tidur</span></div></div>
+    <p class="h" style="margin-top:14px">${d.fo.filter(f=>f.poin<0).length?'Makanan pedas atau manis hari ini: '+d.fo.filter(f=>f.poin<0).map(f=>esc(f.nama)).join(', ')+'.':'Tidak ada makanan pedas atau manis hari ini.'}</p></section>`}
+  const ds=dates(ym),L=ds.map(x=>[x,day(x)]),tot=L.reduce((s,x)=>s+x[1].tot,0),mx=Math.max(10,...L.map(x=>Math.abs(x[1].tot)));
+  const n=new Date(+ym.slice(0,4),+ym.slice(5,7),0).getDate(),w=100/n;
+  const bars=L.map(([x,o])=>{const h=Math.abs(o.tot)/mx*60,i=+x.slice(8)-1;return `<rect x="${i*w+w*.15}%" y="${o.tot>=0?70-h:70}" width="${w*.7}%" height="${Math.max(h,1)}" fill="${o.tot>=0?'var(--good)':'var(--bad)'}"/>`}).join('');
+  return sb+`<section class="card"><div class="row"><div><h2>Laporan ${esc(fmtM(ym))}</h2></div><div style="flex:0 1 190px"><label for="mm">Bulan</label><input type="month" id="mm" value="${ym}"></div></div>
+  <div class="grid" style="margin-top:12px"><div class="k"><b class="${cls(tot)}">${sg(tot)}</b><span>total poin</span></div><div class="k"><b>${ds.length}</b><span>hari tercatat</span></div><div class="k"><b>${r1(sum(L.map(x=>x[1]),'prot')/(ds.length||1))} g</b><span>rata² protein</span></div><div class="k"><b>${sum(L.map(x=>x[1]),'mo')}</b><span>menit olahraga</span></div><div class="k"><b>${sum(L.map(x=>x[1]),'mk')}</b><span>menit skripsi</span></div></div>
+  <svg viewBox="0 0 100 140" preserveAspectRatio="none" style="width:100%;height:120px;margin-top:14px"><line x1="0" x2="100" y1="70" y2="70" stroke="var(--line)" stroke-width=".4"/>${bars}</svg></section>
+  <section class="card"><h3>Rincian per hari</h3>${L.length?`<div class="scroll"><table><tr><th>Tgl</th><th>Makan</th><th>Olahraga</th><th>Skripsi</th><th>Tidur</th><th>Total</th><th>Protein</th></tr>${L.map(([x,o])=>`<tr><td>${x.slice(8)}</td><td class="${cls(o.f)}">${sg(o.f)}</td><td>${sg(o.o)}</td><td>${sg(o.k)}</td><td class="${cls(o.t)}">${sg(o.t)}</td><td><b class="${cls(o.tot)}">${sg(o.tot)}</b></td><td>${r1(o.prot)} g</td></tr>`).join('')}</table></div>`:'<div class="empty">Belum ada data bulan ini.</div>'}</section>`;
+}
+function vHadiah(){
+  const t=new Date(),last=new Date(t.getFullYear(),t.getMonth()+1,0).getDate()===t.getDate(),cur=iso(t).slice(0,7);
+  const open=ym<cur||(ym===cur&&last),bal=balance(ym);
+  return `<section class="card"><div class="row"><div><h2>Self reward</h2><p class="h">Poin bisa ditukar di akhir bulan sebagai hadiah karena sudah hidup sehat.</p></div><div style="flex:0 1 190px"><label for="mm">Bulan</label><input type="month" id="mm" value="${ym}"></div></div>
+  <div class="grid"><div class="k"><b class="${cls(monthPts(ym))}">${sg(monthPts(ym))}</b><span>poin terkumpul</span></div><div class="k"><b>${spent(ym)}</b><span>sudah ditukar</span></div><div class="k"><b class="${cls(bal)}">${bal}</b><span>saldo</span></div></div>
+  <div class="st">${open?'Penukaran terbuka untuk bulan ini.':'Penukaran terbuka pada hari terakhir bulan berjalan atau setelah bulan berakhir.'}</div></section>
+  <section class="card"><h3>Daftar hadiah</h3>${S.rewards.map(r=>`<div class="it"><div><b>${esc(r.nama)}</b><small>${r.biaya} poin</small></div><div><button class="btn o" style="margin:0" data-a="tukar" data-id="${r.id}" ${open&&bal>=r.biaya?'':'disabled'}>Tukar</button> <button class="btn x" data-a="hr" data-id="${r.id}">×</button></div></div>`).join('')||'<div class="empty">Belum ada hadiah.</div>'}
+  <div class="row" style="margin-top:14px"><div style="flex:2 1 200px"><label for="rn">Hadiah baru</label><input type="text" id="rn" placeholder="mis. pijat, jajan favorit"></div><div style="flex:0 1 120px"><label for="rb">Biaya poin</label><input type="number" id="rb" min="1"></div></div><button class="btn" data-a="addr">Tambah hadiah</button></section>
+  <section class="card"><h3>Riwayat penukaran</h3>${S.redeemed.length?S.redeemed.slice().reverse().map(x=>`<div class="it"><div><b>${esc(x.nama)}</b><small>${esc(fmtM(x.bulan))}</small></div><span class="pt neg">−${x.biaya}</span></div>`).join(''):'<div class="empty">Belum ada penukaran.</div>'}</section>`;
+}
+function render(){
+  if(!U){renderAuth();return}
+  ['#nav','#dr','#who','#hs'].forEach(s=>$(s).hidden=false);
+  $('#who').innerHTML=`<div class="tag" style="margin:0 0 6px">${esc(U)}</div><button class="btn o" style="margin:0;padding:6px 14px" data-x="out">Keluar</button>`;
+  document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('on',b.dataset.t===tab));
+  const d=day(date),hs=$('#hs');hs.className='score'+(d.tot<0?' neg':'');hs.innerHTML=`<b>${sg(d.tot)}</b><span>poin hari ini</span>`;
+  $('#view').className='v-'+tab;
+  $('#view').innerHTML=({makan:vMakan,aktif:vAktif,curhat:vCurhat,lap:vLap,hadiah:vHadiah})[tab]();
+}
+
+/* ---------- aksi ---------- */
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a,i=+b.dataset.i,id=b.dataset.id;
+  if(a==='riset')riset();
+  else if(a==='hf'){S.food[date].splice(i,1)}
+  else if(a==='tidur'){const t=$('#st').value,w=$('#sb').value;if(!t)return;S.sleep[date]={tidur:t,bangun:w,poin:sleepPts(t)}}
+  else if(a==='olah'){const m=+$('#om').value,j=$('#oj').value.trim()||'Olahraga';if(!(m>0))return;(S.move[date]=S.move[date]||[]).push({jenis:j,menit:m,poin:band(m)})}
+  else if(a==='ho'){S.move[date].splice(i,1)}
+  else if(a==='skripsi'){const t=$('#sl').value.trim(),m=+$('#sm').value;if(!t||!(m>0))return;S.thesis.logs.unshift({id:Date.now(),d:date,t,m,poin:band(m)})}
+  else if(a==='hs'){S.thesis.logs=S.thesis.logs.filter(l=>l.id!=id)}
+  else if(a==='mood'){const t=$('#dt').value;mood=mood===b.dataset.m?'':b.dataset.m;render();$('#dt').value=t;return}
+  else if(a==='diary'){const t=$('#dt').value.trim();if(!t)return;S.diary.unshift({id:Date.now(),d:date,t,mood,jam:new Date().toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'})});mood=''}
+  else if(a==='hd'){S.diary=S.diary.filter(x=>x.id!=id)}
+  else if(a==='sub'){sub=b.dataset.s;render();return}
+  else if(a==='tukar'){const r=S.rewards.find(x=>x.id==id);if(r&&balance(ym)>=r.biaya)S.redeemed.push({id:Date.now(),bulan:ym,nama:r.nama,biaya:r.biaya})}
+  else if(a==='hr'){S.rewards=S.rewards.filter(x=>x.id!=id)}
+  else if(a==='addr'){const n=$('#rn').value.trim(),c=+$('#rb').value;if(!n||!(c>0))return;S.rewards.push({id:Date.now(),nama:n,biaya:c})}
+  save();render();
+});
+document.addEventListener('change',e=>{
+  const t=e.target;
+  if(t.dataset.a==='bab'){S.thesis.ch[+t.dataset.i]=+t.value;save();render()}
+  else if(t.id==='tg'){S.target=Math.max(10,+t.value||60);save();render()}
+  else if(t.id==='mm'&&t.value){ym=t.value;render()}
+});
+let am='masuk',amsg='',fails=0;
+function renderAuth(){
+  ['#nav','#dr','#who','#hs'].forEach(s=>$(s).hidden=true);
+  $('#view').className='';
+  $('#view').innerHTML=`<section class="card" id="auth" style="max-width:440px;margin:0 auto"><h2>${am==='masuk'?'Selamat datang kembali':'Buat akun baru'}</h2><p class="h">Setiap akun punya catatan, poin, dan hadiah sendiri.</p>
+  <div class="sub"><button class="btn ${am==='masuk'?'':'o'}" style="margin:0" data-x="mode" data-m="masuk">Masuk</button><button class="btn ${am==='daftar'?'':'o'}" style="margin:0" data-x="mode" data-m="daftar">Daftar</button></div>
+  <label for="au">Username</label><input type="text" id="au" autocomplete="username" autocapitalize="off" spellcheck="false" maxlength="20">
+  <label for="ap" style="margin-top:12px">Password</label><input type="password" id="ap" autocomplete="${am==='masuk'?'current-password':'new-password'}">
+  ${am==='daftar'?'<label for="ap2" style="margin-top:12px">Ulangi password</label><input type="password" id="ap2" autocomplete="new-password">':''}
+  <button class="btn" data-x="go" id="ago">${am==='masuk'?'Masuk':'Buat akun'}</button><div class="st" id="amsg">${esc(amsg)}</div>
+  <p class="h" style="font-size:12px">Akun disimpan di browser perangkat ini. Password yang lupa tidak bisa dipulihkan.</p></section>`;
+}
+document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.closest&&e.target.closest('#auth')){const g=$('#ago');if(g)g.click()}});
+document.addEventListener('click',async e=>{
+  const b=e.target.closest('[data-x]');if(!b)return;const x=b.dataset.x;
+  if(x==='mode'){am=b.dataset.m;amsg='';render();return}
+  if(x==='out'){try{sessionStorage.removeItem('jurnal-sesi')}catch(_){}U=null;S=def();am='masuk';amsg='';render();return}
+  if(x!=='go')return;
+  const u=$('#au').value.trim().toLowerCase(),p=$('#ap').value,A=accts(),set=m=>{amsg=m;$('#amsg').textContent=m};
+  if(!(window.crypto&&crypto.subtle)){set('Browser ini tidak mendukung penyimpanan password yang aman.');return}
+  if(!/^[a-z0-9_.]{3,20}$/.test(u)){set('Username 3–20 karakter: huruf, angka, titik, atau garis bawah.');return}
+  b.disabled=true;
+  try{
+    if(am==='daftar'){
+      if(p.length<6){set('Password minimal 6 karakter.');return}
+      if(p!==$('#ap2').value){set('Ulangi password tidak sama.');return}
+      if(A[u]){set('Username sudah dipakai.');return}
+      const salt=hex(crypto.getRandomValues(new Uint8Array(16))),first=!Object.keys(A).length;
+      A[u]={salt,hash:await hashPw(p,salt)};saveAcc(A);
+      if(first){try{const old=localStorage.getItem(K)||localStorage.getItem('jurnal-harian-v1');if(old)localStorage.setItem(uk(u),old)}catch(_){}}
+    }else{
+      const a=A[u];fails++;
+      if(fails>2)await new Promise(r=>setTimeout(r,Math.min(fails-2,5)*1000));
+      if(!a||await hashPw(p,a.salt)!==a.hash){set('Username atau password salah.');return}
+      fails=0;
+    }
+    try{sessionStorage.setItem('jurnal-sesi',u)}catch(_){}
+    loadUser(u);tab='makan';render();
+  }finally{b.disabled=false}
+});
+try{const s=sessionStorage.getItem('jurnal-sesi');if(s&&accts()[s])loadUser(s)}catch(e){}
+render();
+</script>
+</body>
+</html>
